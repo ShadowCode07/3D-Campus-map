@@ -1,4 +1,7 @@
 
+using CampusMapAPI.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace CampusMapAPI
 {
     public class Program
@@ -6,6 +9,15 @@ namespace CampusMapAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+
+                options.EnableSensitiveDataLogging(true);
+            });
 
             builder.Services.AddControllers();
             
