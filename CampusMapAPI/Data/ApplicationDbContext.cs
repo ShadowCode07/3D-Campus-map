@@ -7,12 +7,17 @@ namespace CampusMapAPI.Data
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
-            
+
         }
 
         public DbSet<Building> Buildings { get; set; }
         public DbSet<Pin> Pins { get; set; }
         public DbSet<Media> Media { get; set; }
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
