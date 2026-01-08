@@ -1,11 +1,19 @@
-﻿namespace CampusMapAPI.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace CampusMapAPI.Models;
+
+public class Media
 {
-    public class Media
-    {
-        public int Media_ID { get; set; }
-        public string? Media_Url { get; set; }      
-        public string? Media_Type { get; set; }     
-        public string? Title { get; set; }          
-        public string? Text { get; set; }           
-    }
+    public int MediaId { get; set; }
+
+    public string Url { get; set; } = null!;
+
+    public string? MediaType { get; set; }
+
+    public string? Title { get; set; }
+
+    public virtual ICollection<Hotspot> Hotspots { get; set; } = new List<Hotspot>();
+
+    public virtual ICollection<Scene> Scenes { get; set; } = new List<Scene>();
 }
