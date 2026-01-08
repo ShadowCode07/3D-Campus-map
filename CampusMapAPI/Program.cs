@@ -1,5 +1,8 @@
 
 using CampusMapAPI.Data;
+using CampusMapAPI.Interfaces.IRepositories;
+using CampusMapAPI.Interfaces.Services;
+using CampusMapAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace CampusMapAPI
@@ -18,6 +21,10 @@ namespace CampusMapAPI
 
                 options.EnableSensitiveDataLogging(true);
             });
+
+            builder.Services.AddScoped<IHotspotRepository, HotsportRepository>();
+
+            builder.Services.AddScoped<IHotspotService, HotspotService>();
 
             builder.Services.AddControllers();
             
