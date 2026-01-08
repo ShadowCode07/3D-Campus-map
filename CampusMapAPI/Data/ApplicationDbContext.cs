@@ -28,18 +28,18 @@ namespace CampusMapAPI.Data
 
             modelBuilder.Entity<Building>(entity =>
             {
-                entity.HasKey(e => e.BuildingId).HasName("PRIMARY");
+                entity.HasKey(e => e.Id).HasName("PRIMARY");
 
                 entity.ToTable("building");
 
-                entity.Property(e => e.BuildingId).HasColumnName("Building_ID");
+                entity.Property(e => e.Id).HasColumnName("Building_ID");
                 entity.Property(e => e.Description).HasColumnType("text");
                 entity.Property(e => e.Name).HasMaxLength(20);
             });
 
             modelBuilder.Entity<Hotspot>(entity =>
             {
-                entity.HasKey(e => e.HotspotId).HasName("PRIMARY");
+                entity.HasKey(e => e.Id).HasName("PRIMARY");
 
                 entity.ToTable("hotspot");
 
@@ -47,7 +47,7 @@ namespace CampusMapAPI.Data
 
                 entity.HasIndex(e => e.SceneId, "Scene_ID_idx");
 
-                entity.Property(e => e.HotspotId)
+                entity.Property(e => e.Id)
                     .ValueGeneratedNever()
                     .HasColumnName("Hotspot_ID");
                 entity.Property(e => e.IconType)
@@ -73,11 +73,11 @@ namespace CampusMapAPI.Data
 
             modelBuilder.Entity<Media>(entity =>
             {
-                entity.HasKey(e => e.MediaId).HasName("PRIMARY");
+                entity.HasKey(e => e.Id).HasName("PRIMARY");
 
                 entity.ToTable("media");
 
-                entity.Property(e => e.MediaId).HasColumnName("Media_ID");
+                entity.Property(e => e.Id).HasColumnName("Media_ID");
                 entity.Property(e => e.MediaType)
                     .HasMaxLength(50)
                     .HasColumnName("Media_Type");
@@ -89,7 +89,7 @@ namespace CampusMapAPI.Data
 
             modelBuilder.Entity<Scene>(entity =>
             {
-                entity.HasKey(e => e.SceneId).HasName("PRIMARY");
+                entity.HasKey(e => e.Id).HasName("PRIMARY");
 
                 entity.ToTable("scene");
 
@@ -97,7 +97,7 @@ namespace CampusMapAPI.Data
 
                 entity.HasIndex(e => e.PreviewMediaId, "Preview_Media_ID_idx");
 
-                entity.Property(e => e.SceneId)
+                entity.Property(e => e.Id)
                     .ValueGeneratedNever()
                     .HasColumnName("Scene_ID");
                 entity.Property(e => e.BuildingId).HasColumnName("Building_ID");

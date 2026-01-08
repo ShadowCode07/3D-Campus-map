@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace CampusMapAPI.Models;
 
-public class Scene
+public class Scene : Base
 {
-    public int SceneId { get; set; }
 
     public int? BuildingId { get; set; }
 

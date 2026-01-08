@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace CampusMapAPI.Models;
 
-public class Building
+public class Building : Base
 {
-    public int BuildingId { get; set; }
-
     public string Name { get; set; } = null!;
 
     public string? Description { get; set; }

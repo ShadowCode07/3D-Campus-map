@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace CampusMapAPI.Models;
 
-public class Media
+public class Media : Base
 {
-    public int MediaId { get; set; }
-
     public string Url { get; set; } = null!;
 
     public string? MediaType { get; set; }

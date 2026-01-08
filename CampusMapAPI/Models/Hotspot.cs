@@ -3,10 +3,8 @@ using System.Collections.Generic;
 
 namespace CampusMapAPI.Models;
 
-public class Hotspot
+public class Hotspot : Base
 {
-    public int HotspotId { get; set; }
-
     public int? SceneId { get; set; }
 
     public int? MediaId { get; set; }
