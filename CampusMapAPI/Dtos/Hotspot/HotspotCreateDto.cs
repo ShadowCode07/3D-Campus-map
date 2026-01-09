@@ -1,6 +1,6 @@
 ﻿namespace CampusMapAPI.Dtos.Hotspot
 {
-    public class HotsportCreateDto
+    public class HotspotCreateDto
     {
         public int? SceneId { get; set; }
         public int? MediaId { get; set; }

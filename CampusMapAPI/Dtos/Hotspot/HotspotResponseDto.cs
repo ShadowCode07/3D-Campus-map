@@ -15,5 +15,7 @@
         public string? Name { get; set; }
         public string? Text { get; set; }
         public string? IconType { get; set; }
+
+        public string ConcurrencyToken { get; set; } = string.Empty;
     }
 }

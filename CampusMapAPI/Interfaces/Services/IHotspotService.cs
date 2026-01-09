@@ -1,13 +1,14 @@
-﻿using CampusMapAPI.Models;
+﻿using CampusMapAPI.Dtos.Hotspot;
+using CampusMapAPI.Models;
 
 namespace CampusMapAPI.Interfaces.Services
 {
     public interface IHotspotService
     {
-        Task<Hotspot> CreateAsync(Hotspot dto);
-        Task<Hotspot?> UpdateAsync(int id, Hotspot dto);
+        Task<HotspotResponseDto> CreateAsync(HotspotCreateDto dto);
+        Task<HotspotResponseDto?> UpdateAsync(int id, HotspotUpdateDto dto);
         Task<bool> DeleteAsync(int id);
-        Task<Hotspot?> GetByIdAsync(int id);
-        Task<IEnumerable<Hotspot>> GetAllAsync();
+        Task<HotspotResponseDto?> GetByIdAsync(int id);
+        Task<IEnumerable<HotspotResponseDto>> GetAllAsync();
     }
 }

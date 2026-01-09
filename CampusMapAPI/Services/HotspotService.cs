@@ -1,6 +1,8 @@
-﻿using CampusMapAPI.Interfaces.IRepositories;
+﻿using CampusMapAPI.Dtos.Hotspot;
+using CampusMapAPI.Interfaces.IRepositories;
 using CampusMapAPI.Interfaces.Services;
 using CampusMapAPI.Models;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace CampusMapAPI.Services
@@ -14,37 +16,41 @@ namespace CampusMapAPI.Services
             _hotspotRepository = hotspotRepository;
         }
 
-        public async Task<Hotspot> CreateAsync(Hotspot hotspot)
+        public async Task<HotspotResponseDto> CreateAsync(HotspotCreateDto dto)
         {
+            if (dto == null) throw new ArgumentNullException(nameof(dto));
+
+            var hotspot = dto.Adapt<Hotspot>();
 
             await _hotspotRepository.CreateAsync(hotspot);
             await _hotspotRepository.SaveChanges();
 
-            return hotspot;
+            return hotspot.Adapt<HotspotResponseDto>();
         }
 
-        public async Task<IEnumerable<Hotspot>> GetAllAsync()
+        public async Task<IEnumerable<HotspotResponseDto>> GetAllAsync()
         {
-            return await _hotspotRepository.GetAllAsync();
+            var hotspots = await _hotspotRepository.GetAllAsync();
+            return hotspots.Adapt<IEnumerable<HotspotResponseDto>>();
         }
 
-        public async Task<Hotspot?> GetByIdAsync(int id)
+        public async Task<HotspotResponseDto?> GetByIdAsync(int id)
         {
-            return await _hotspotRepository.GetByIdAsync(id);
+            var hotspot = await _hotspotRepository.GetByIdAsync(id);
+            return hotspot?.Adapt<HotspotResponseDto>();
         }
 
-        public async Task<Hotspot?> UpdateAsync(int id, Hotspot hotspot)
+        public async Task<HotspotResponseDto?> UpdateAsync(int id, HotspotUpdateDto dto)
         {
-            if (hotspot == null)
-            {
-                throw new ArgumentNullException(nameof(hotspot));
-            }
+            if (dto == null) throw new ArgumentNullException(nameof(dto));
 
             var existing = await _hotspotRepository.GetByIdAsync(id);
             if (existing is null)
             {
                 return null;
             }
+
+            dto.Adapt(existing);
 
             try
             {
@@ -55,7 +61,7 @@ namespace CampusMapAPI.Services
                 return null;
             }
 
-            return existing;
+            return existing.Adapt<HotspotResponseDto>();
         }
 
         public async Task<bool> DeleteAsync(int id)
