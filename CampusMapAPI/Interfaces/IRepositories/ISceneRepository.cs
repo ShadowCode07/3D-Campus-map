@@ -1,6 +1,8 @@
-﻿namespace CampusMapAPI.Interfaces.IRepositories
+﻿using CampusMapAPI.Models;
+
+namespace CampusMapAPI.Interfaces.IRepositories
 {
-    public class ISceneRepository
+    public interface ISceneRepository : IRepository<Scene>
     {
     }
 }
