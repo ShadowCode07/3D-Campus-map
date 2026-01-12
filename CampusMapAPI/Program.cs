@@ -27,8 +27,10 @@ namespace CampusMapAPI
             builder.Services.RegisterMapsterConfiguration();
 
             builder.Services.AddScoped<IHotspotRepository, HotsportRepository>();
+            builder.Services.AddScoped<ISceneRepository, SceneRepository>();
 
             builder.Services.AddScoped<IHotspotService, HotspotService>();
+            builder.Services.AddScoped<ISceneService, SceneService>();
 
             builder.Services.AddControllers();
             
