@@ -6,7 +6,7 @@ namespace CampusMapAPI.Controllers
 {
     [ApiController]
     [Route("api/scene")]
-    public class SceneController : ControllerBase
+    public class SceneController : ControllerBase   
     {
         private readonly ISceneService _sceneService;
 

@@ -23,7 +23,7 @@ public class Hotspot : Base
 
     public string? IconType { get; set; }
 
-    public virtual Media? Media { get; set; }
+    public Media? Media { get; set; }
 
-    public virtual Scene? Scene { get; set; }
+    public Scene? Scene { get; set; }
 }

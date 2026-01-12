@@ -22,9 +22,9 @@ public class Scene : Base
 
     public string? Scenecol { get; set; }
 
-    public virtual Building? Building { get; set; }
+    public Building? Building { get; set; }
 
-    public virtual ICollection<Hotspot> Hotspots { get; set; } = new List<Hotspot>();
+    public ICollection<Hotspot> Hotspots { get; set; } = new List<Hotspot>();
 
-    public virtual Media? PreviewMedia { get; set; }
+    public Media? PreviewMedia { get; set; }
 }

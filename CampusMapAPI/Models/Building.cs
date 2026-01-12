@@ -9,5 +9,5 @@ public class Building : Base
 
     public string? Description { get; set; }
 
-    public virtual ICollection<Scene> Scenes { get; set; } = new List<Scene>();
+    public ICollection<Scene> Scenes { get; set; } = new List<Scene>();
 }

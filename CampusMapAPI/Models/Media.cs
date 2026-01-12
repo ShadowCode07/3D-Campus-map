@@ -11,7 +11,7 @@ public class Media : Base
 
     public string? Title { get; set; }
 
-    public virtual ICollection<Hotspot> Hotspots { get; set; } = new List<Hotspot>();
+    public ICollection<Hotspot> Hotspots { get; set; } = new List<Hotspot>();
 
-    public virtual ICollection<Scene> Scenes { get; set; } = new List<Scene>();
+    public ICollection<Scene> Scenes { get; set; } = new List<Scene>();
 }
