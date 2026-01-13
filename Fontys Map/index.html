@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fontys Map</title>
+    <title>Campus Map</title>
  <link rel="stylesheet" href="pannellum.css"/>
     <script type="text/javascript" src="pannellum.js"></script>
     <style>
@@ -23,15 +23,19 @@ pannellum.viewer('panorama', {
 
     "scenes" : {
     "Stairs3" : {
+        "pitch" : 7.96,
+        "yaw" : -78.2,
         "hfov" : 110,
         "type" : "equirectangular",
-        "panorama" : "images/Stairs3.jpg",
+        "panorama" : "../images/Stairs3.jpg",
         "hotSpots" : [
             {
                 "pitch" : 7.96,
                 "yaw" : -78.2,
                 "type" : "scene",
-                "sceneId" : "Stairs"
+                "sceneId" : "Stairs",
+                "targetPitch" : -2.4,
+                "targetYaw" : -104.2
             }
         ]
     },
@@ -44,13 +48,17 @@ pannellum.viewer('panorama', {
                 "pitch" : -25.12,
                 "yaw" : 75.13,
                 "type" : "scene",
-                "sceneId" : "Stairs3"
+                "sceneId" : "Stairs3",
+                 "targetPitch" : -24.83,
+                "targetYaw" : 98.63
                 },
             {
                 "pitch" : -0.072,
                 "yaw" : 171.85,
                 "type" : "scene",
-                "sceneId" : "Hallway"
+                "sceneId" : "Hallway",
+                "targetPitch" : -0.92,
+                "targetYaw" : -172
             }
         ]
     },
@@ -69,13 +77,17 @@ pannellum.viewer('panorama', {
                 "pitch" : 1.053,
                 "yaw" : -151.41,
                 "type" : "scene",
-                "sceneId" : "Outdoor"
+                "sceneId" : "Outdoor",
+                "targetPitch" : -0.5,
+                "targetYaw" : -93.96
             },
             {
                 "pitch" : 0.618,
                 "yaw" : 148.67,
                 "type" : "scene",
-                "sceneId" : "Hallway2"
+                "sceneId" : "Hallway2",
+                 "targetPitch" : -4.17,
+                "targetYaw" : 79.7
             }
         ]      
         },
@@ -89,8 +101,329 @@ pannellum.viewer('panorama', {
                 "yaw" : -51.97,
                 "type" : "scene",
                 "sceneId" : "Hallway"
+                },
+                 {
+                    "pitch" : 2.12,
+                    "yaw" : -103.25,
+                    "type" : "scene",
+                    "sceneId" : "Outdoor",
+                     "targetPitch" : -0.5,
+                "targetYaw" : -93.96
+                },
+                {
+                    "pitch" : -2.71,
+                    "yaw" : 80.54,
+                    "type" : "scene",
+                    "sceneId" : "Hallway3",
+                    "targetPitch" : -2.32,
+                "targetYaw" : 80.83
                 }
             ]
+        },
+        "Hallway3" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway3.jpg",
+             "hotSpots" : [
+                  {
+                "pitch" : -2.32,
+                "yaw" : 80.83,
+                "type" : "scene",
+                "sceneId" : "Hallway4",
+                "targetPitch" : -3.977,
+                "targetYaw" : 84.57
+                },
+                {
+                    "pitch" : -3.63,
+                "yaw" : -99.22,
+                "type" : "scene",
+                "sceneId" : "Hallway2",
+                "targetPitch" : 2.12,
+                "targetYaw" : -103.25
+                }
+            ]
+        },
+        "Hallway4" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway4.jpg",
+            "hotSpots" : [
+                  {
+                "pitch" : -1.26,
+                "yaw" : -94.025,
+                "type" : "scene",
+                "sceneId" : "Hallway3",
+                "targetPitch" : -3.63,
+                "targetYaw" : -99.22
+                  },
+                  {
+                    "pitch" : -0.82,
+                "yaw" : 174.09,
+                "type" : "scene",
+                "sceneId" : "Hallway5",
+                "targetPitch" : -0.87,
+                "targetYaw" : 176.78
+                  }
+                ]
+        },
+        "Hallway5" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway5.jpg",
+            "hotSpots" : [
+                  {
+                "pitch" : -3.06,
+                "yaw" : -1.85,
+                "type" : "scene",
+                "sceneId" : "Hallway4",
+                "targetPitch" : -7.02,
+                "targetYaw" : -4.78
+                  },
+                  {
+                "pitch" : -2.017,
+                "yaw" : 177.23,
+                "type" : "scene",
+                "sceneId" : "Hallway6",
+                "targetPitch" : -5.34,
+                "targetYaw" : -60.59
+                  }                 
+                ]
+        },
+        "Hallway6" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway6.jpg",
+              "hotSpots" : [
+                  {
+                "pitch" : -2.14,
+                "yaw" : 121.31,
+                "type" : "scene",
+                "sceneId" : "Hallway5",
+                "targetPitch" : -3.06,
+                "targetYaw" : -1.85
+                  },
+                  {
+                    "pitch" : -0.521,
+                "yaw" : -150.12,
+                "type" : "scene",
+                "sceneId" : "Hallway14",
+                "targetPitch" : -2.37,
+                "targetYaw" : -20.32
+                  }
+                ]
+        },
+        "Hallway7" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway7.jpg"
+        },
+        "Hallway8" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway8.jpg"
+        },
+        "Hallway9" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway9.jpg"
+        },
+        "Hallway10" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway10.jpg",
+            "hotSpots" : [
+                {
+                    "pitch" : -2.6,
+                    "yaw" : 179.56,
+                    "type" : "scene",
+                    "sceneId" : "Hallway11",
+                    "targetPitch" : -2.71,
+                    "targetYaw" : -171.19
+                },
+                {
+                    "pitch" : -5.43,
+                    "yaw" : -101.7,
+                    "type" : "scene",
+                    "sceneId" : "CoffeeRoom",
+                    "targetPitch" : 1,
+                    "targetYaw" : 1
+                },
+                {
+                    "pitch" : -6.04,
+                    "yaw" : 3.68,
+                    "type" : "scene",
+                    "sceneId" : "Hallway9",
+                    "targetPitch" : 1,
+                    "targetYaw" : 1
+                }
+            ]
+        },
+        "Hallway11" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway11.jpg",
+            "hotSpots" : [
+                {
+                    "pitch" : -2.71,
+                    "yaw" : -171.19,
+                    "type" : "scene",
+                    "sceneId" : "Hallway12",
+                    "targetPitch" : -1.08,
+                    "targetYaw" : 176.38
+                },
+                {
+                    "pitch" : -4.719,
+                    "yaw" : 6.295,
+                    "type" : "scene",
+                    "sceneId" : "Hallway10",
+                    "targetPitch" : 1,
+                    "targetYaw" : 1
+                }
+            ]
+        },
+        "Hallway12" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway12.jpg",
+            "hotSpots" : [
+                {
+                    "pitch" : -1.08,
+                    "yaw" : 176.38,
+                    "type" : "scene",
+                    "sceneId" : "Hallway13",
+                    "targetPitch" : -3.19,
+                    "targetYaw" : 177.21
+                },
+                {
+                     "pitch" : -2.945,
+                    "yaw" : -1.79,
+                    "type" : "scene",
+                    "sceneId" : "Hallway11",
+                    "targetPitch" : 1,
+                    "targetYaw" : 1
+                }
+            ]
+        },
+        "Hallway13" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway13.jpg",
+            "hotSpots" : [
+                {
+                    "pitch" : -3.19,
+                    "yaw" : 177.21,
+                    "type" : "scene",
+                    "sceneId" : "Hallway14",
+                    "targetPitch" : -6,
+                    "targetYaw" : 160.97
+                },
+                {
+                    "pitch" : -3.14,
+                    "yaw" : 0.13,
+                    "type" : "scene",
+                    "sceneId" : "Hallway12",
+                    "targetPitch" : 1,
+                    "targetYaw" : 1
+                }
+            ]
+        },
+        "Hallway14" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway14.jpg",
+            "hotSpots" : [
+                {
+                    "pitch" : -6,
+                    "yaw" : 160.97,
+                    "type" : "scene",
+                    "sceneId" : "Hallway6",
+                    "targetPitch" : -1.84,
+                    "targetYaw" : 27.18
+                },
+                {
+                    "pitch" : -2.37,
+                    "yaw" : -20.32,
+                    "type" : "scene",
+                    "sceneId" : "Hallway13",
+                    "targetPitch" : 1,
+                    "targetYaw" : 1
+                }
+            ]
+        },
+        "Hallway15" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway15.jpg"
+        },
+        "Hallway16" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway16.jpg"
+        },
+        "Hallway17" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway18.jpg"
+        },
+        "Hallway19" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway19.jpg"
+        },
+        "Hallway20" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway20.jpg"
+        },
+        "Hallway21" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway21.jpg"
+        },
+        "Hallway22" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway22.jpg"
+        },
+        "Hallway23" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway23.jpg"
+        },
+        "Hallway24" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway24.jpg"
+        },
+        "Hallway25" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway25.jpg"
+        },
+        "Hallway26" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway26.jpg"
+        },
+        "Hallway27" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway27.jpg"
+        },
+        "Hallway29" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway29.jpg"
+        },
+        "Hallway30" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway30.jpg"
+        },
+        "Hallway31" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway31.jpg"
         },
         "Outdoor" : {
             "hfov" : 110,
@@ -101,10 +434,17 @@ pannellum.viewer('panorama', {
                     "pitch" : -6.45,
                     "yaw" : 84.93,
                     "type" : "scene",
-                    "sceneId" : "Hallway"
-                }
+                    "sceneId" : "Hallway2",
+                    "targetPitch" : -4.17,
+                "targetYaw" : 79.7
+                }             
             ]
     },
+    "CoffeeRoom" : {
+        "hfov" : 110,
+        "type" : "equirectangular",
+        "panorama" : "images/coffieroom.jpg"
+    }
 },
     "hotSpotDebug" : true
 } 
