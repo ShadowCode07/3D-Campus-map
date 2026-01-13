@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontys Map</title>
+ <link rel="stylesheet" href="pannellum.css"/>
+    <script type="text/javascript" src="pannellum.js"></script>
+    <style>
+    #panorama {
+        width: 900px;
+        height: 600px;
+    }
+    </style>
+</head>
+<body>
+<div id="panorama"></div>
+<script>
+pannellum.viewer('panorama', {
+    "default" : {
+        "firstScene" : "Stairs3",
+    },
+
+    "scenes" : {
+    "Stairs3" : {
+        "hfov" : 110,
+        "type" : "equirectangular",
+        "panorama" : "images/Stairs3.jpg",
+        "hotSpots" : [
+            {
+                "pitch" : 7.96,
+                "yaw" : -78.2,
+                "type" : "scene",
+                "sceneId" : "Stairs"
+            }
+        ]
+    },
+     "Stairs" : {
+        "hfov" : 110,
+        "type" : "equirectangular",
+        "panorama" : "images/Stairs.jpg",
+         "hotSpots" : [
+              {
+                "pitch" : -25.12,
+                "yaw" : 75.13,
+                "type" : "scene",
+                "sceneId" : "Stairs3"
+                },
+            {
+                "pitch" : -0.072,
+                "yaw" : 171.85,
+                "type" : "scene",
+                "sceneId" : "Hallway"
+            }
+        ]
+    },
+        "Hallway" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway.jpg",
+             "hotSpots" : [
+                  {
+                "pitch" : -0.33,
+                "yaw" : 7.811,
+                "type" : "scene",
+                "sceneId" : "Stairs"
+                },
+            {
+                "pitch" : 1.053,
+                "yaw" : -151.41,
+                "type" : "scene",
+                "sceneId" : "Outdoor"
+            },
+            {
+                "pitch" : 0.618,
+                "yaw" : 148.67,
+                "type" : "scene",
+                "sceneId" : "Hallway2"
+            }
+        ]      
+        },
+      "Hallway2" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Hallway2.jpg",
+            "hotSpots" : [
+                  {
+                "pitch" : -1.09,
+                "yaw" : -51.97,
+                "type" : "scene",
+                "sceneId" : "Hallway"
+                }
+            ]
+        },
+        "Outdoor" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/Outdoor.jpg",
+            "hotSpots" : [
+                {
+                    "pitch" : -6.45,
+                    "yaw" : 84.93,
+                    "type" : "scene",
+                    "sceneId" : "Hallway"
+                }
+            ]
+    },
+},
+    "hotSpotDebug" : true
+} 
+);
+</script>
+</body>
+</html>
