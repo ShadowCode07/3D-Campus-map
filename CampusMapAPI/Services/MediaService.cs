@@ -2,6 +2,7 @@
 using CampusMapAPI.Interfaces.IRepositories;
 using CampusMapAPI.Interfaces.Services;
 using CampusMapAPI.Models;
+using CampusMapAPI.Repositories;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,11 +10,11 @@ namespace CampusMapAPI.Services
 {
     public class MediaService : IMediaService
     {
-        private readonly IMediaRepository _MediaRepository;
+        private readonly IMediaRepository _mediaRepository;
 
-        public MediaService(IMediaRepository MediaRepository)
+        public MediaService(IMediaRepository mediaRepository)
         {
-            _MediaRepository = MediaRepository;
+            _mediaRepository = mediaRepository;
         }
 
         public async Task<MediaResponseDto> CreateAsync(MediaCreateDto dto)
@@ -22,21 +23,21 @@ namespace CampusMapAPI.Services
 
             var Media = dto.Adapt<Media>();
 
-            await _MediaRepository.CreateAsync(Media);
-            await _MediaRepository.SaveChanges();
+            await _mediaRepository.CreateAsync(Media);
+            await _mediaRepository.SaveChanges();
 
             return Media.Adapt<MediaResponseDto>();
         }
 
         public async Task<IEnumerable<MediaResponseDto>> GetAllAsync()
         {
-            var Medias = await _MediaRepository.GetAllAsync();
+            var Medias = await _mediaRepository.GetAllAsync();
             return Medias.Adapt<IEnumerable<MediaResponseDto>>();
         }
 
         public async Task<MediaResponseDto?> GetByIdAsync(int id)
         {
-            var Media = await _MediaRepository.GetByIdAsync(id);
+            var Media = await _mediaRepository.GetByIdAsync(id);
             return Media?.Adapt<MediaResponseDto>();
         }
 
@@ -44,7 +45,7 @@ namespace CampusMapAPI.Services
         {
             if (dto == null) throw new ArgumentNullException(nameof(dto));
 
-            var existing = await _MediaRepository.GetByIdAsync(id);
+            var existing = await _mediaRepository.GetByIdAsync(id);
             if (existing is null)
             {
                 return null;
@@ -54,7 +55,7 @@ namespace CampusMapAPI.Services
 
             try
             {
-                await _MediaRepository.SaveChanges();
+                await _mediaRepository.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -66,14 +67,20 @@ namespace CampusMapAPI.Services
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var deleted = await _MediaRepository.DeleteByIdAsync(id);
+            var deleted = await _mediaRepository.DeleteByIdAsync(id);
             if (!deleted)
             {
                 return false;
             }
 
-            await _MediaRepository.SaveChanges();
+            await _mediaRepository.SaveChanges();
             return true;
+        }
+        public async Task<IEnumerable<MediaResponseDto>> GetByIdsAsync(int[] mediaIds)
+        {
+            var medias = await _mediaRepository.GetByIdsAsync(mediaIds);
+
+            return medias.Adapt<IEnumerable<MediaResponseDto>>();
         }
     }
 }

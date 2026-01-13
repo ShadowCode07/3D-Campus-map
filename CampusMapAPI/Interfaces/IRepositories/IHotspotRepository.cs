@@ -4,5 +4,6 @@ namespace CampusMapAPI.Interfaces.IRepositories
 {
     public interface IHotspotRepository : IRepository<Hotspot>
     {
+        Task<IEnumerable<Hotspot>> GetBySceneIdsAsync(int[] sceneIds);
     }
 }

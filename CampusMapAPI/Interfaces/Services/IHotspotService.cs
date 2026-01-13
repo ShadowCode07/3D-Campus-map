@@ -10,5 +10,6 @@ namespace CampusMapAPI.Interfaces.Services
         Task<bool> DeleteAsync(int id);
         Task<HotspotResponseDto?> GetByIdAsync(int id);
         Task<IEnumerable<HotspotResponseDto>> GetAllAsync();
+        Task<IEnumerable<HotspotResponseDto>> GetBySceneIdsAsync(int[] sceneIds);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CampusMapAPI.Dtos.Media;
+using CampusMapAPI.Models;
 
 namespace CampusMapAPI.Interfaces.Services
 {
@@ -9,5 +10,6 @@ namespace CampusMapAPI.Interfaces.Services
         Task<bool> DeleteAsync(int id);
         Task<MediaResponseDto?> GetByIdAsync(int id);
         Task<IEnumerable<MediaResponseDto>> GetAllAsync();
+        Task<IEnumerable<MediaResponseDto>> GetByIdsAsync(int[] mediaIds);
     }
 }
