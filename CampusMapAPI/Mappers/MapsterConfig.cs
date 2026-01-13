@@ -60,6 +60,5 @@ namespace CampusMapAPI.Mappers
                 .IgnoreNullValues(true);
         }
     }
-    }
-
 }
+

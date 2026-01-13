@@ -15,3 +15,4 @@ public class Media : Base
 
     public ICollection<Scene> Scenes { get; set; } = new List<Scene>();
 }
+    

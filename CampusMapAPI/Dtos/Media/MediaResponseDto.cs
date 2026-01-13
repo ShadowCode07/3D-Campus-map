@@ -5,7 +5,7 @@ namespace CampusMapAPI.Dtos.Media
 {
     public class MediaResponseDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Url { get; set; } = null!;
         public string? MediaType { get; set; }
         public string? Title { get; set; }

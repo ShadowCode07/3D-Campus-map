@@ -32,6 +32,7 @@ namespace CampusMapAPI
 
             builder.Services.AddScoped<IHotspotService, HotspotService>();
             builder.Services.AddScoped<ISceneService, SceneService>();
+            builder.Services.AddScoped<IMediaService, MediaService>();
 
             builder.Services.AddControllers();
             
