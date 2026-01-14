@@ -1,6 +1,7 @@
-﻿namespace CampusMapAPI.Interfaces.IRepositories
+﻿using CampusMapAPI.Models;
+
+namespace CampusMapAPI.Interfaces.IRepositories;
+
+public interface IBuildingRepository : IRepository<Building>
 {
-    public class IBuildingRepository
-    {
-    }
 }

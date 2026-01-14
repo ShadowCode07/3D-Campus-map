@@ -1,6 +1,12 @@
-﻿namespace CampusMapAPI.Repositories
+﻿using CampusMapAPI.Data;
+using CampusMapAPI.Interfaces.IRepositories;
+using CampusMapAPI.Models;
+
+namespace CampusMapAPI.Repositories;
+
+public class BuildingRepository : Repository<Building>, IBuildingRepository
 {
-    public class BuildingRepository
+    public BuildingRepository(ApplicationDbContext context) : base(context)
     {
     }
 }

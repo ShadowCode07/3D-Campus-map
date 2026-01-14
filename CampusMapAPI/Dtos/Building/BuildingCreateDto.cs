@@ -1,6 +1,7 @@
-﻿namespace CampusMapAPI.Dtos.Building
+﻿namespace CampusMapAPI.Dtos.Building;
+
+public class BuildingCreateDto
 {
-    public class BuildingCreateDto
-    {
-    }
+    public string Name { get; set; } = null!;
+    public string? Description { get; set; }
 }
