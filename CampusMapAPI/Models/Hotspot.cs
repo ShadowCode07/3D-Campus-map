@@ -16,6 +16,9 @@ public class Hotspot : Base
     public decimal? Pitch { get; set; }
 
     public decimal? Yaw { get; set; }
+    public decimal? TargetPitch { get; set; }
+
+    public decimal? TargetYaw { get; set; }
 
     public string? Name { get; set; }
 

@@ -37,7 +37,15 @@ namespace CampusMapAPI
             builder.Services.AddScoped<IPannellumService, PannellumService>();
 
             builder.Services.AddControllers();
-            
+
+            builder.Services.AddCors(o =>
+            {
+                o.AddPolicy("frontend", p =>
+                    p.WithOrigins("http://localhost:5500")
+                     .AllowAnyHeader()
+                     .AllowAnyMethod());
+            });
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -49,10 +57,13 @@ namespace CampusMapAPI
                 app.UseSwaggerUI();
             }
 
+            app.UseRouting();
+
+            app.UseCors("frontend");
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

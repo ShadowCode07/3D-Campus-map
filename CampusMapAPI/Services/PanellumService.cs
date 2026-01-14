@@ -2,9 +2,7 @@
 using CampusMapAPI.Dtos.Media;
 using CampusMapAPI.Dtos.Pannellum;
 using CampusMapAPI.Dtos.Scene;
-using CampusMapAPI.Interfaces.IRepositories;
 using CampusMapAPI.Interfaces.Services;
-using CampusMapAPI.Models;
 
 namespace CampusMapAPI.Services
 {
@@ -34,11 +32,16 @@ namespace CampusMapAPI.Services
                          ?? new List<SceneResponseDto>();
 
             if (scenes.Count == 0)
+            {
                 throw new KeyNotFoundException($"No scenes found for buildingId={buildingId}.");
+            }
 
             var validScenes = scenes.Where(s => !string.IsNullOrWhiteSpace(s.Scenecol)).ToList();
+
             if (validScenes.Count == 0)
+            {
                 throw new InvalidOperationException("Scenes exist but none have Scenecol set.");
+            }
 
             var sceneIds = validScenes.Select(s => s.Id).ToArray();
 
@@ -61,8 +64,11 @@ namespace CampusMapAPI.Services
             var sceneKeyById = validScenes.ToDictionary(s => s.Id, s => s.Scenecol!);
 
             var first = !string.IsNullOrWhiteSpace(firstSceneId) ? firstSceneId! : validScenes[0].Scenecol!;
+            
             if (!validScenes.Any(s => s.Scenecol == first))
+            {
                 first = validScenes[0].Scenecol!;
+            }
 
             var hotspotsBySceneId = hotspots
                 .Where(h => h.SceneId.HasValue)
@@ -95,8 +101,6 @@ namespace CampusMapAPI.Services
                 {
                     Type = panoType,
                     Panorama = panoUrl,
-                    Pitch = scene.StartPitch,
-                    Yaw = scene.StartYaw,
                     Hfov = scene.StartHfov,
                     Title = scene.Name,
                     HotSpots = sceneHotspots
@@ -127,11 +131,12 @@ namespace CampusMapAPI.Services
                 Pitch = h.Pitch ?? 0,
                 Yaw = h.Yaw ?? 0,
                 Type = type,
-                Text = h.Text
+                Text = h.Text,
+                TargetPitch = h.TargetPitch,
+                TargetYaw = h.TargetYaw
             };
 
-            if (type == "scene" &&
-                h.TargetSceneId.HasValue &&
+            if (type == "scene" && h.TargetSceneId.HasValue &&
                 sceneKeyById.TryGetValue(h.TargetSceneId.Value, out var targetKey))
             {
                 dto.SceneId = targetKey;
@@ -143,7 +148,9 @@ namespace CampusMapAPI.Services
         private static string NormalizePanoType(string? mediaType)
         {
             if (string.IsNullOrWhiteSpace(mediaType))
+            {
                 return "equirectangular";
+            }
 
             return mediaType.ToLowerInvariant() switch
             {

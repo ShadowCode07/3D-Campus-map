@@ -14,10 +14,6 @@ public class Scene : Base
 
     public string? Description { get; set; }
 
-    public decimal? StartPitch { get; set; }
-
-    public decimal? StartYaw { get; set; }
-
     public decimal? StartHfov { get; set; }
 
     public string? Scenecol { get; set; }

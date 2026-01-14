@@ -1,18 +1,23 @@
-const API_BASE = "https://campusmapapi-fkb7azh6h9hah4b9.germanywestcentral-01.azurewebsites.net/api";
+let viewer = null;
+const API_BASE_URL = "https://campusmapapi-fkb7azh6h9hah4b9.germanywestcentral-01.azurewebsites.net/api";
 
-async function LoadScenes() {
-  try{
-    let url = `${API_BASE}/scenes`;
-
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch scenes");
-    }
-
-    const scenes = await response.json();
-    return scenes;
-  } catch (error) {
-    console.error("Error loading scenes:", error);
+export async function loadTour(buildingId, { firstScene } = {}) {
+  const qs = firstScene ? `?firstScene=${encodeURIComponent(firstScene)}` : "";
+  const res = await fetch(`${API_BASE_URL}/buildings/${buildingId}/tour/pannellum${qs}`);
+  if (!res.ok) {
+    throw new Error(`Failed to load tour: ${res.status}`);
   }
+
+  const config = await res.json();
+
+  if (viewer)
+  {
+    viewer.destroy();
+    viewer = null;
+  }
+
+  viewer = pannellum.viewer("panorama", config);
+  return viewer;
 }
+
+loadTour(1).catch(console.error);

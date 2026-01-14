@@ -61,6 +61,12 @@ namespace CampusMapAPI.Data
                 entity.Property(e => e.Text).HasColumnType("text");
                 entity.Property(e => e.Type).HasMaxLength(20);
                 entity.Property(e => e.Yaw).HasPrecision(10);
+                entity.Property(e => e.TargetPitch)
+                    .HasPrecision(10)
+                    .HasColumnName("TargetPitch");
+                entity.Property(e => e.TargetYaw)
+                    .HasPrecision(10)
+                    .HasColumnName("TargetYaw");
 
                 entity.HasOne(d => d.Media).WithMany(p => p.Hotspots)
                     .HasForeignKey(d => d.MediaId)
@@ -110,12 +116,6 @@ namespace CampusMapAPI.Data
                 entity.Property(e => e.StartHfov)
                     .HasPrecision(10)
                     .HasColumnName("Start_HFov");
-                entity.Property(e => e.StartPitch)
-                    .HasPrecision(10)
-                    .HasColumnName("Start_Pitch");
-                entity.Property(e => e.StartYaw)
-                    .HasPrecision(10)
-                    .HasColumnName("Start_Yaw");
 
                 entity.HasOne(d => d.Building).WithMany(p => p.Scenes)
                     .HasForeignKey(d => d.BuildingId)
