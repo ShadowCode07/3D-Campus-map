@@ -34,6 +34,8 @@ namespace CampusMapAPI
             builder.Services.AddScoped<ISceneService, SceneService>();
             builder.Services.AddScoped<IMediaService, MediaService>();
 
+            builder.Services.AddScoped<IPannellumService, PannellumService>();
+
             builder.Services.AddControllers();
             
             builder.Services.AddEndpointsApiExplorer();

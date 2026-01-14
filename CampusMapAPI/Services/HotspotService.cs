@@ -75,5 +75,12 @@ namespace CampusMapAPI.Services
             await _hotspotRepository.SaveChanges();
             return true;
         }
+
+        public async Task<IEnumerable<HotspotResponseDto>> GetBySceneIdsAsync(int[] sceneIds)
+        {
+            var hotspots = await _hotspotRepository.GetBySceneIdsAsync(sceneIds);
+
+            return hotspots.Adapt<IEnumerable<HotspotResponseDto>>();
+        }
     }
 }

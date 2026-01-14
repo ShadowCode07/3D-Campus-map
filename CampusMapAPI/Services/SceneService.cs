@@ -75,6 +75,13 @@ namespace CampusMapAPI.Services
             await _sceneRepository.SaveChanges();
             return true;
         }
+
+        public async Task<IEnumerable<SceneResponseDto>> GetByBuildingIdAsync(int buildingId)
+        {
+            var scenes =  await _sceneRepository.GetByBuildingIdAsync(buildingId);
+
+            return scenes.Adapt<IEnumerable<SceneResponseDto>>();
+        }
     }
 }
 
