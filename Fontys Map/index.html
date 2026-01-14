@@ -15,13 +15,11 @@
 </head>
 <body>
 <div id="panorama"></div>
-
 <script>
 pannellum.viewer('panorama', {
     "default" : {
-        "firstScene" : "Hallway14",
+        "firstScene" : "Mstairs_r1_001"
     },
-
     "scenes" : {
     "Mstairs_r1_001" : {
         "pitch" : 7.96,
@@ -187,6 +185,14 @@ pannellum.viewer('panorama', {
                 "sceneId" : "Hallway5",
                 "targetPitch" : -0.87,
                 "targetYaw" : 176.78
+                  },
+                  {
+                    "pitch" : -1.88,
+                    "yaw" : 85.18,
+                    "type" : "scene",
+                    "sceneId" : "NHallway2",
+                    "targetPitch" : 1,
+                "targetYaw" : 1
                   }
                 ]
         },
@@ -448,6 +454,14 @@ pannellum.viewer('panorama', {
                     "sceneId" : "Hallway16",
                     "targetPitch" : -2.93,
                     "targetYaw" : -172.05
+                },
+                {
+                    "pitch" : -0.25,
+                    "yaw" : 10.75,
+                    "type" : "scene",
+                    "sceneId" : "NHallway",
+                    "targetPitch" : -0.05,
+                    "targetYaw" : -174.68
                 }
             ]
         },
@@ -821,6 +835,52 @@ pannellum.viewer('panorama', {
                 }
             ]
         },
+        "NHallway" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/NHallway.jpg",
+             "hotSpots" : [
+                {
+                    "pitch" : -2.5,
+                    "yaw" : 8.98,
+                    "type" : "scene",
+                    "sceneId" : "Hallway15",
+                    "targetPitch" : -3.44,
+                    "targetYaw" : -156.55
+                },
+                {
+                    "pitch" : -1.02,
+                    "yaw" : -176.32,
+                    "type" : "scene",
+                    "sceneId" : "NHallway2",
+                    "targetPitch" : -0.94,
+                    "targetYaw" : -169.04
+                }
+            ]
+        },
+         "NHallway2" : {
+            "hfov" : 110,
+            "type" : "equirectangular",
+            "panorama" : "images/NHallway2.jpg",
+             "hotSpots" : [
+                {
+                    "pitch" : -0.7,
+                    "yaw" : 9.07,
+                    "type" : "scene",
+                    "sceneId" : "NHallway",
+                    "targetPitch" : 1,
+                "targetYaw" : 1
+                },
+                {
+                    "pitch" : -2.56,
+                    "yaw" : -175.02,
+                    "type" : "scene",
+                    "sceneId" : "Hallway4",
+                    "targetPitch" : 1.44,
+                "targetYaw" : -103.5
+                }     
+            ]
+        },
         "Outdoor" : {
             "hfov" : 110,
             "type" : "equirectangular",
@@ -870,7 +930,6 @@ pannellum.viewer('panorama', {
         ]
     }
 },
-    "hotSpotDebug" : true
 } 
 );
 </script>
