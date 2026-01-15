@@ -29,10 +29,12 @@ namespace CampusMapAPI
             builder.Services.AddScoped<IHotspotRepository, HotsportRepository>();
             builder.Services.AddScoped<ISceneRepository, SceneRepository>();
             builder.Services.AddScoped<IMediaRepository, MediaRepository>();
+            builder.Services.AddScoped<IBuildingRepository, BuildingRepository>();
 
             builder.Services.AddScoped<IHotspotService, HotspotService>();
             builder.Services.AddScoped<ISceneService, SceneService>();
             builder.Services.AddScoped<IMediaService, MediaService>();
+            builder.Services.AddScoped<IBuildingService, BuildingService>();
 
             builder.Services.AddScoped<IPannellumService, PannellumService>();
 
