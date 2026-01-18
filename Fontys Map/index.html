@@ -3,23 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Campus Map</title>
+    <title>Fontys Campus Tour</title>
 
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="./pannellum.css" />
-
-    <style>
-      #panorama {
-        width: 100%;
-        height: 100vh;
-      }
-    </style>
   </head>
+
   <body>
-    <div id="panorama"></div>
+    <div class="layout">
+      <aside class="menu" aria-label="Tour navigation">
+        <div class="menuTop">
+          <button class="menuCloseBtn" id="menuCloseBtn" aria-label="Close menu">×</button>
+
+          <div class="brand">
+            <div class="brandLogo" aria-hidden="true"></div>
+            <div>
+              <div class="brandTitle">Fontys Campus Tour</div>
+              <div class="brandSubtitle">Choose a location</div>
+            </div>
+          </div>
+
+          <label class="search">
+            <span class="searchLabel">Search</span>
+            <input id="searchInput" class="searchInput" placeholder="e.g. hallway, coffee…" />
+          </label>
+        </div>
+
+        <nav class="sceneNav" id="sceneNav"></nav>
+
+        <div class="menuBottom">
+          <div class="hint">
+            Tip: drag to look • scroll to zoom • click hotspots to move
+          </div>
+        </div>
+      </aside>
+
+      <main class="stage">
+        <div id="panorama"></div>
+
+        <div class="topBar">
+          <button class="menuBtn" id="menuBtn" aria-label="Open menu">☰</button>
+          <div class="sceneTitle" id="sceneTitle">Loading…</div>
+        </div>
+      </main>
+    </div>
+
+    <div id="loadingPanel" class="loadingPanel" role="status" aria-live="polite">
+      <div class="loadingCard">
+        <div class="loadingTitle">Preparing your tour…</div>
+        <div id="loadingMsg" class="loadingMsg">Starting</div>
+
+        <div class="loadingBar" aria-hidden="true">
+          <div class="loadingFill"></div>
+        </div>
+
+        <div class="loadingNote">
+          Image loading may take a while, please wait.
+        </div>
+      </div>
+    </div>
 
     <script src="./pannellum.js"></script>
-
-    <script type="module" src="./api.js"></script>
+    <script src="./api.js"></script>
   </body>
 </html>
