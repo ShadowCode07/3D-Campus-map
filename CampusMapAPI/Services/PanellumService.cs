@@ -132,6 +132,7 @@ namespace CampusMapAPI.Services
                 Yaw = h.Yaw ?? 0,
                 Type = type,
                 Text = h.Text,
+                Url = h.Url,
                 TargetPitch = h.TargetPitch,
                 TargetYaw = h.TargetYaw
             };

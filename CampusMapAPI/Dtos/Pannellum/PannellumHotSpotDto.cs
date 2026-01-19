@@ -19,6 +19,9 @@ namespace CampusMapAPI.Dtos.Pannellum
         [JsonPropertyName("text")]
         public string? Text { get; set; }
 
+        [JsonPropertyName("URL")]
+        public string? Url { get; set; }
+
         [JsonPropertyName("targetPitch")]
         public decimal? TargetPitch { get; set; }
         [JsonPropertyName("targetYaw")]

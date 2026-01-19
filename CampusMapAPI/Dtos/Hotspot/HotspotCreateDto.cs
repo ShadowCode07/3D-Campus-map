@@ -11,6 +11,7 @@
         public decimal? Yaw { get; set; }
         public decimal? TargetPitch { get; set; }
         public decimal? TargetYaw { get; set; }
+        public string? Url { get; set; }
 
         public string? Name { get; set; }
         public string? Text { get; set; }
