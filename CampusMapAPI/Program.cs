@@ -43,7 +43,8 @@ namespace CampusMapAPI
             builder.Services.AddCors(o =>
             {
                 o.AddPolicy("frontend", p =>
-                    p.WithOrigins("http://localhost:5500")
+                    p.WithOrigins("http://localhost:5500",
+                        "https://shadowcode07.github.io")
                      .AllowAnyHeader()
                      .AllowAnyMethod());
             });
